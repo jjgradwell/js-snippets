@@ -1,4 +1,5 @@
 
+```
 const checkbox = document.getElementsByName("type")
 checkbox.forEach( item => {
   item.addEventListener('click', () => {
@@ -7,3 +8,5 @@ checkbox.forEach( item => {
     item.checked = state // Restore the state for current checkbox
   })
 });
+```
+

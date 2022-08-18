@@ -1,0 +1,13 @@
+Toggle all checkboxes that have a common name attribute, reseting the checked status for the currently checked item
+
+```
+// Toggle function for checkboxed with name='type'
+const checkbox = document.getElementsByName("type")
+checkbox.forEach( item => {
+  item.addEventListener('click', () => {
+    state = item.checked // Store the checkbox statr
+    for( var cb of checkbox ) cb.checked = false; // Unchek all checkboxes
+    item.checked = state // Restore the state for current checkbox
+  })
+});
+```

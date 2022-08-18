@@ -1,3 +1,4 @@
+
 const checkbox = document.getElementsByName("type")
 checkbox.forEach( item => {
   item.addEventListener('click', () => {

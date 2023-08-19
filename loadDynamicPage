@@ -1,3 +1,8 @@
+Javascript function to load a page from supplied url, and execute the scripts that are found in it
+
+```curPage``` is a variable in main javascript to track the current page, and only load if the requested url if different from the saved page
+
+```
 function fetchPage( url ) {
   if ( curPage == url ) return false
   fetch( url )
@@ -30,3 +35,4 @@ function fetchPage( url ) {
   .catch( err => { console.warn('Something went wrong.', err) });
   curPage = url;
 }
+```

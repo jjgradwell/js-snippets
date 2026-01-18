@@ -1,0 +1,25 @@
+/*
+  The following function is from https://stackoverflow.com/a/51187875/402876
+  and modified to specify the input id to use for filter
+*/
+
+const FilterTableRows = (field) => {
+  const table = document.querySelector('[data-filter]')
+  const trs = table.querySelectorAll('tbody tr')
+  const filter = document.querySelector(field).value
+  const regex = new RegExp(filter, 'i')
+
+  const isFoundInTds = td => regex.test( td.innerHTML )
+  const isFound = childrenArr => childrenArr.some( isFoundInTds )
+
+  const setTrStyleDisplay = ({ style, children }) => {
+    style.display = isFound([ ...children /* <-- All columns */ ]) ? '' : 'none'
+  }
+
+  trs.forEach( setTrStyleDisplay )
+}
+
+const ClearFilter = () => {
+  document.getElementById('filterItems').reset()
+  document.querySelector('[data-filter]').querySelectorAll('tbody tr').forEach( e => { e.style.display = '' })
+}
